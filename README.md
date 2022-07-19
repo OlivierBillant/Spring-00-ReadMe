@@ -27,8 +27,7 @@ comme un framework à briques on retrouvera ainsi :
 # Dictionnaire d'annotations
 ``` java 
 @SpringBootApplication
-``` 
-: lanceur principal Spring
+``` : lanceur principal Spring
 - ``` Java 
 @Autowired
 private Class classInstance
