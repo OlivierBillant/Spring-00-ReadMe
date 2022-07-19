@@ -43,4 +43,4 @@ Récuprère un @Component, par défaut le @Primary
 @Primary
 ```
 Un @Component sera automatiquement détecté par @Autowired et pourra être assorti d'un nom.
-Si plusieursn priorité sera donnée au primary.
+Si plusieurs composants, la priorité sera donnée au primary.
