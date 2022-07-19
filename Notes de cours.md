@@ -79,11 +79,11 @@ Remarques sur les **méthodes DAO** auto-générées :
   Contact monContact = dao.findById(0).orElse(null)
   Contact monContact = dao.findById(0).orElse(new Contact(constructor))
   ```
-  - **Création de méthodes par requêtes nommées**  
-    Méthode findBy custom : ne sont pas auto-générées comme en Symfony.  
-    On utilisera les connecteurs présents ci après :  
-    https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation  
-    Dans la classe ObjetDao, ajouter :
+- **JPQL : Création de méthodes par requêtes nommées**  
+   Méthode findBy custom : ne sont pas auto-générées comme en Symfony.  
+   On utilisera les connecteurs présents ci après :  
+   https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation  
+   Dans la classe ObjetDao, ajouter :
   ```java
   Objet findByAttribut1AndAttribut2(Type Attribut1, Type Attribut2)
   ```
