@@ -25,7 +25,7 @@ comme un framework à briques on retrouvera ainsi :
     - Gradle ou Maven. Ici on utilisera Gradle
 
 # Dictionnaire d'annotations
-- ``` java 
+``` java 
 @SpringBootApplication
 ``` 
 : lanceur principal Spring
