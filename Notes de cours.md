@@ -16,6 +16,32 @@ comme un framework à briques on retrouvera ainsi :
     - Tous les ORM utilisent la même norme JPA. Attention, les syntaxes pré-JPA sont encore très présentes dans les tutos et ne sont plus utilisables.
     - Spring Data : remplace Spring JDBC et Spring ORM.
 
+    ### Installation de Lombok
+        Ajout de la dépendance dans la configuration du Spring Init
+        Lancer Lombok.jar depuis les dépendances du projet pour l'installer.
+        Redémarrer Eclipse.
+
+    ### Configuation Data minimale
+        ``` java 
+        @Entity
+        public class ClassName
+            @Id
+            @GeneratedValue
+        ``` 
+        
+        Depuis javax.persistence
+        Permettra l'ajout en base de donnée d'un objet.
+
+        Dans src/main/ressources
+        Application properties :
+
+        ``` java 
+         spring.jpa.show-sql=true
+         spring.jpa.properties.hibernate.format_sql=true
+         ```
+         La première affiche les requêtes
+         La seconde les formatte.
+
 - **Front** :
     - Spring MVC + Thymeleaf : analogue des twig en php, remplacera les Servlets/jsp
     - Spring WEB : génération de web services Rest.

@@ -5,7 +5,7 @@
 Lanceur principal Spring
 ``` Java 
 @Autowired
-private Class classInstance
+private Class classInstance;
 ``` 
 Récuprère un @Component, par défaut le @Primary
 ``` Java 
@@ -19,3 +19,26 @@ Utilisé avec @Autowired pour récupérer un component par son nom.
 Récuprère un @Component, par défaut le @Primary
 Un @Component sera automatiquement détecté par @Autowired et pourra être assorti d'un nom.  
 Si plusieurs composants, la priorité sera donnée au primary.
+
+## Lombok
+``` java 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+```
+On pense à rajouter l'id de l'objet
+
+``` java 
+@Entity
+public class ClassName
+    @Id
+    @GeneratedValue
+```
+Depuis javax.persistence
+
+Dans src/main/ressources
+Ajouter à application properties :
+``` java
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
