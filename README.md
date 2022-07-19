@@ -1,4 +1,3 @@
-# Spring-00-ReadMe
 # Java Avancé - Framework Spring Boot
 
 ## Reprise des hostilités : rappels de Java
@@ -34,3 +33,14 @@ Lanceur principal Spring
 private Class classInstance
 ``` 
 Récuprère un @Component, par défaut le @Primary
+``` Java 
+@Qualifier
+Utilisé avec @Autowired pour récupérer un component par son nom.
+``` 
+Récuprère un @Component, par défaut le @Primary
+``` java 
+@Component("componentName")
+@Primary
+```
+Un @Component sera automatiquement détecté par @Autowired et pourra être assorti d'un nom.
+Si plusieursn priorité sera donnée au primary.
