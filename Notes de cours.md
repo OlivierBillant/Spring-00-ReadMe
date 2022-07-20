@@ -44,11 +44,10 @@ public class ClassName
     @GeneratedValue
 ```
 
-Depuis javax.persistence
+Depuis javax.persistence  
 Permettra l'ajout en base de donnée d'un objet.
 
-Dans src/main/ressources
-Application properties :
+Dans src/main/ressources/Application-properties :
 
 ```java
     spring.jpa.show-sql=true
@@ -68,7 +67,7 @@ public interface ContactDao extends CrudRepository<Contact, Integer>{}
 
 On passe à CrudRepository la classe "Contact" et le type de son Identifiant "Integer"
 
-Remarques sur les **méthodes DAO** auto-générées :
+### Les **méthodes DAO** auto-générées :
 
 - A noter que la méthode dao.save gèrera à la fois l'insert et l'update.
 - La méthode FindBy rend un optional permettant de gérer les NPE depuis Java8.
@@ -95,3 +94,14 @@ Remarques sur les **méthodes DAO** auto-générées :
   @Query("SELECT c.tel FROM Contact c WHERE c.prenom= :prenom")
   String getTelByPrenom(@Param("prenom") String prenom)
   ```
+
+### Relations SQL
+
+On utilisera les annotations de relation type @ManyToOne qui peuvent être assorties  
+de paramètres (cascade etc...).  
+Les relations seront alors automatiquement créees.  
+On pourra ensuite accéder à tous les attributs de l'objet lié.  
+Le paramètre **fetch = FetchType.LAZY** pourra prendre deux valeurs :
+
+- LAZY : il fera la requête que si nécessaire (n requêtes si besoin)
+- EAGER : il fera la jointure directement et remontera l'ensemble des infos.

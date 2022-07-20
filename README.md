@@ -51,3 +51,11 @@ Depuis javax.persistence
 @Query
 ```
 Creation de méthodes par requêtes nommées / Query Methods
+
+```java
+@ManyToOne(cascade = CascadeType.PERSIST)
+@OneToMany
+@ManyToMany
+```
+Les annotations sont a ajouter sur les attributs que l'on veut lier.  
+Les paramètres comme cascade permettront de faciliter les sauvegardes ou les suppressions.
