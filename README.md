@@ -47,10 +47,7 @@ public class ClassName
 
 Depuis javax.persistence
 
-Dans src/main/ressources
-Ajouter à application properties :
-
 ```java
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
+@Query
 ```
+Creation de méthodes par requêtes nommées / Query Methods
