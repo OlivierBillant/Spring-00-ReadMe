@@ -105,3 +105,8 @@ Le paramètre **fetch = FetchType.LAZY** pourra prendre deux valeurs :
 
 - LAZY : il fera la requête que si nécessaire (n requêtes si besoin)
 - EAGER : il fera la jointure directement et remontera l'ensemble des infos.
+
+### Customisation colonnes et attributs
+
+On peut donner des noms aux entités et tables (paramètre name).  
+On peut modifier les modes d'incrémentation des Id.
