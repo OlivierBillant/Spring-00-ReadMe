@@ -144,3 +144,13 @@ spring.datasource.username=springuser
 spring.datasource.password=ThePassword
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
+ <br>
+
+ ## Web services
+ On passe en .war sur spring init, les plugins utiles seront :  
+ - H2
+ - Spring Data
+ - Spring Web
+ - Spring Dev Tools
+ - Lombok
+ 

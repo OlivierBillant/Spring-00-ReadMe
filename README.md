@@ -69,5 +69,23 @@ Le ToString.Exclude permettra d'éviter les Overflow lors de l'affichage d'insta
 Pour changer un nom de table.
 
 ``` java
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // .JOINED .TABLE_PER_CLASS
+@DiscriminatorColumn(name = "ty_entreprise", length = 5)
+@DiscriminatorValue("ENT")
 ```
+Pour définir le mode d'héritage. par défault SINGLE_TABLE.  
+Les discriminators seront utiles dans ce cas uniquement.
+
+```java
+@RestController
+```
+Définit la classe en composant controller Rest.
+```java
+@GetMapping(/path/{arg})
+@GetMapping("/hello/{lang}")
+	public String disHello2(@PathVariable("lang") String lang) {}
+```
+```java
+@JSONIgnore
+```
+Pour éviter les doubles dépendances
