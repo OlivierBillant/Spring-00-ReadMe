@@ -130,3 +130,17 @@ Plus complexe à mettre en place.
 
 Selon l'option prise, la construction des DAO sera largement modifiée.  
 Par défaut, la configuration JPA sera OneTable.
+
+### Connexion db
+Ajouter dans les dépendances gradle le 
+``` java
+runtimeOnly 'mysql:mysql-connector-java'
+```
+Puis dans src/main/ressources modifier application.configuration
+``` java
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+spring.datasource.username=springuser
+spring.datasource.password=ThePassword
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```

@@ -67,3 +67,7 @@ Le ToString.Exclude permettra d'éviter les Overflow lors de l'affichage d'insta
 @Table(name = "candidate")
 ```
 Pour changer un nom de table.
+
+``` java
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+```
