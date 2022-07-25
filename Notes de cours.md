@@ -35,6 +35,8 @@ Ajout de la dépendance dans la configuration du Spring Init
 Lancer Lombok.jar depuis les dépendances du projet pour l'installer.
 Redémarrer Eclipse.
 
+<br>
+
 ### Configuation Data minimale
 
 ```java
@@ -67,6 +69,8 @@ public interface ContactDao extends CrudRepository<Contact, Integer>{}
 
 On passe à CrudRepository la classe "Contact" et le type de son Identifiant "Integer"
 
+<br>
+
 ### Les **méthodes DAO** auto-générées :
 
 - A noter que la méthode dao.save gèrera à la fois l'insert et l'update.
@@ -95,6 +99,8 @@ On passe à CrudRepository la classe "Contact" et le type de son Identifiant "In
   String getTelByPrenom(@Param("prenom") String prenom)
   ```
 
+<br>
+
 ### Relations SQL
 
 On utilisera les annotations de relation type @ManyToOne qui peuvent être assorties  
@@ -110,3 +116,17 @@ Le paramètre **fetch = FetchType.LAZY** pourra prendre deux valeurs :
 
 On peut donner des noms aux entités et tables (paramètre name).  
 On peut modifier les modes d'incrémentation des Id.
+
+<br>
+
+### Héritage
+Comment gérer l'héritage en db :  
+- **One Table** : Une table mère disposera des attributs communs et d'un atrtibut correspodant au type d'une classe fille.  
+On optera lorsque l'on a beaucoup d'informations dans l'échelon supérieur.
+- **TablePerTable** : recopie des éléments de la classe mère dans les classes filles.
+- **Join** Utilisation d'une PK/FK id_classeMere de la classe mère et présente dans les classes filles.  
+Nécessitera l'utilisation de jointures pour récupérer l'ensemble des données sans reprt.  
+Plus complexe à mettre en place.
+
+Selon l'option prise, la construction des DAO sera largement modifiée.  
+Par défaut, la configuration JPA sera OneTable.
