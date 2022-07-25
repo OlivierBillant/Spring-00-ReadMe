@@ -54,8 +54,16 @@ Creation de méthodes par requêtes nommées / Query Methods
 
 ```java
 @ManyToOne(cascade = CascadeType.PERSIST)
-@OneToMany
-@ManyToMany
+@OneToMany(mappedBy = "candidat")
+@ToString.Exclude
+@ManyToMany(cascade = CascadeType.PERSIST)
 ```
 Les annotations sont a ajouter sur les attributs que l'on veut lier.  
 Les paramètres comme cascade permettront de faciliter les sauvegardes ou les suppressions.
+On retrouvera ainsi mappedBy qui permettra d'associer précisément deux tables entre elles.
+Le ToString.Exclude permettra d'éviter les Overflow lors de l'affichage d'instances.
+
+```java
+@Table(name = "candidate")
+```
+Pour changer un nom de table.
