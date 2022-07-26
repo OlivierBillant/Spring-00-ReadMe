@@ -153,4 +153,17 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
  - Spring Web
  - Spring Dev Tools
  - Lombok
+ <br>
+ Le transfert des messages d'erreurs se fera sous forme de ResponseEntity récupétant les messages d'erreurs.
  
+ ```java
+ @PostMapping("/voiture")
+	public ResponseEntity<String> ajouterVehicule(@RequestBody Voiture voiture) {
+		try {
+			parkingManager.ajouterVehicule(voiture);
+			return new ResponseEntity<String>("Ajout reussi", HttpStatus.ACCEPTED);
+		} catch (ParkingException pe) {
+			return new ResponseEntity<String>(pe.getMessage(), HttpStatus.METHOD_NOT_ALLOWED);
+		}
+	}
+  ```

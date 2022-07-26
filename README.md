@@ -123,6 +123,13 @@ Les Get/DeleteMapping permettent de définir les méthodes utilisées.
 
 ```java
 @JSONIgnore
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+                    property = "id")
 ```
+Pour éviter les doubles dépendances en JSON. JSON ignore entraine une perte d'information.  
+Alternativement on peut utiliser le second qui va se baser sur les identifiant donné pour éviter les doublons.
 
-Pour éviter les doubles dépendances
+```java
+@Transactional
+```
+Dans tous les managers.
