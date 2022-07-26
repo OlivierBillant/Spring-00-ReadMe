@@ -50,6 +50,7 @@ Depuis javax.persistence
 ```java
 @Query
 ```
+
 Creation de méthodes par requêtes nommées / Query Methods
 
 ```java
@@ -58,6 +59,7 @@ Creation de méthodes par requêtes nommées / Query Methods
 @ToString.Exclude
 @ManyToMany(cascade = CascadeType.PERSIST)
 ```
+
 Les annotations sont a ajouter sur les attributs que l'on veut lier.  
 Les paramètres comme cascade permettront de faciliter les sauvegardes ou les suppressions.
 On retrouvera ainsi mappedBy qui permettra d'associer précisément deux tables entre elles.
@@ -66,26 +68,41 @@ Le ToString.Exclude permettra d'éviter les Overflow lors de l'affichage d'insta
 ```java
 @Table(name = "candidate")
 ```
+
 Pour changer un nom de table.
 
-``` java
+```java
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // .JOINED .TABLE_PER_CLASS
 @DiscriminatorColumn(name = "ty_entreprise", length = 5)
 @DiscriminatorValue("ENT")
 ```
+
 Pour définir le mode d'héritage. par défault SINGLE_TABLE.  
 Les discriminators seront utiles dans ce cas uniquement.
 
 ```java
 @RestController
 ```
+
 Définit la classe en composant controller Rest.
+
 ```java
-@GetMapping(/path/{arg})
-@GetMapping("/hello/{lang}")
-	public String disHello2(@PathVariable("lang") String lang) {}
+@RequestMapping("/path")
+public class ClassName{
+    @GetMapping(/path/{arg})
+    @GetMapping("/hello/{lang}")
+	public String disHello2(@PathVariable("lang") String lang) {}  
+    @DeleteMapping
+    	public void effacer(@PathVariable("id") Integer id) {}
+
+}
 ```
+
+@RequestMapping définira le chemin par défaut.
+Les Get/DeleteMapping permettent de définir les méthodes utilisées.
+
 ```java
 @JSONIgnore
 ```
+
 Pour éviter les doubles dépendances
