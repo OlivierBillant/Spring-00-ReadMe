@@ -91,10 +91,30 @@ Définit la classe en composant controller Rest.
 public class ClassName{
     @GetMapping(/path/{arg})
     @GetMapping("/hello/{lang}")
-	public String disHello2(@PathVariable("lang") String lang) {}  
-    @DeleteMapping
-    	public void effacer(@PathVariable("id") Integer id) {}
+	public String disHello2(@PathVariable("lang") String lang) {}
 
+    @GetMapping("")
+    public ArrayList<Objet> afficherTout() {
+        return objetManager.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Objet objet afficherUn(@RequestBody Integer id) {
+        return objetManager.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void effacer(@PathVariable("id") Integer id) {}
+
+    @PostMapping("")
+    public void ajouter(@RequestBody Objet objet) {
+            objetManager.addObjet(objet);
+        }
+}
+    @PutMapping("")
+	public void modifier(@RequestBody Objet objet) {
+		objetManager.editObjet(objet);
+	}
 }
 ```
 
