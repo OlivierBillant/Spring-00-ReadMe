@@ -126,10 +126,20 @@ Les Get/DeleteMapping permettent de définir les méthodes utilisées.
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
                     property = "id")
 ```
+
 Pour éviter les doubles dépendances en JSON. JSON ignore entraine une perte d'information.  
 Alternativement on peut utiliser le second qui va se baser sur les identifiant donné pour éviter les doublons.
 
 ```java
 @Transactional
 ```
+
 Dans tous les managers.
+
+Spring Data Rest
+
+```java
+compileOnly 'org.springframework.boot:spring-boot-starter-data-rest'
+```
+
+Variables d’environnement HTTP Proxy
